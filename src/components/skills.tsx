@@ -31,7 +31,11 @@ import {
 export default function Skills() {
 	return (
 		<section>
-			<h1 className="font-bold text-2xl pl-3">Skills 👨🏾‍💻</h1>
+			<h1 className="font-bold text-2xl pl-3 mb-3  ">
+				<a className="bg-gradient-to-r from-sky-300  bg-[length:100%_1px] bg-no-repeat bg-bottom">
+					Skills 👨🏾‍💻
+				</a>
+			</h1>
 			<Tabs defaultValue="frontend" className="w-[400px]">
 				<TabsList>
 					<TabsTrigger value="frontend">frontend</TabsTrigger>
@@ -70,8 +74,57 @@ export default function Skills() {
 						</div>
 					</div>
 				</TabsContent>
-				<TabsContent value="backend">Change your backend here.</TabsContent>
-				<TabsContent value="other">Change your backend here.</TabsContent>
+				<TabsContent value="backend">
+					<div className="grid grid-cols-3 gap-x-24 mt-4">
+						<div className="grid grid-cols-2">
+							<IoLogoNodejs size={32} className=" text-emerald-400" />
+							<div className="text-2xl pl-3">Nodejs</div>
+						</div>
+
+						<div className="grid grid-cols-2">
+							<SiFirebase size={32} className=" text-amber-600" />
+							<div className="text-2xl pl-3">Firebase</div>
+						</div>
+
+						<div className="grid grid-cols-2">
+							<RiSupabaseFill size={36} className=" text-emerald-600" />{' '}
+							<div className="text-2xl pl-3">Supabase</div>
+						</div>
+
+						<div className="grid grid-cols-2">
+							<SiPostgresql size={36} className=" text-sky-700" />{' '}
+							<div className="text-2xl pl-3">Postgresql</div>
+						</div>
+
+						<div className="grid grid-cols-2">
+							<SiPython size={36} className=" text-sky-600" />{' '}
+							<div className="text-2xl pl-3">Python</div>
+						</div>
+					</div>
+				</TabsContent>
+				<TabsContent value="other">
+					<div className="grid grid-cols-3 gap-x-24 mt-4">
+						<div className="grid grid-cols-2">
+							<RiGitBranchLine size={32} className=" text-rose-500" />
+							<div className="text-2xl pl-3">Git</div>
+						</div>
+
+						<div className="grid grid-cols-2">
+							<RiGithubFill size={32} className=" " />
+							<div className="text-2xl pl-3">Github</div>
+						</div>
+
+						<div className="grid grid-cols-2">
+							<SiVisualstudiocode size={36} className=" text-sky-700" />
+							<div className="text-2xl pl-3">VScode</div>
+						</div>
+
+						<div className="grid grid-cols-2">
+							<SiDocker size={36} className=" text-sky-500" />
+							<div className="text-2xl pl-3">Docker</div>
+						</div>
+					</div>
+				</TabsContent>
 			</Tabs>
 		</section>
 	);
