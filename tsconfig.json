@@ -21,6 +21,7 @@
 		],
 		"paths": {
 			"@/*": ["./src/*"],
+			"@/lib/utils": ["./lib/utils"],
 			"@/types": ["./types"],
 			"@/config/*": ["./config/*"],
 			"contentlayer/generated": ["./.contentlayer/generated"]
