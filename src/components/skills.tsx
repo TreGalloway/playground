@@ -19,14 +19,6 @@ import {
 import { IoLogoNodejs } from 'react-icons/io';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle
-} from '@/components/ui/card';
 
 export default function Skills() {
 	return (
@@ -37,7 +29,7 @@ export default function Skills() {
 				</a>
 			</h1>
 			<Tabs defaultValue="frontend" className="w-[400px]">
-				<TabsList>
+				<TabsList className=" dark:bg-zinc-800">
 					<TabsTrigger value="frontend">frontend</TabsTrigger>
 					<TabsTrigger value="backend">Backend</TabsTrigger>
 					<TabsTrigger value="other">Other</TabsTrigger>
