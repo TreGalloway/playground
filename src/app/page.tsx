@@ -10,7 +10,7 @@ export default function Home() {
 			<div className="flex mb-4">
 				<div>
 					<h1 className="font-bold text-2xl mb-8 tracking-tighter mt-16">
-						Hey I'm Tre' Galloway 👋🏾
+						Hey I&apos;m Tre&apos; Galloway 👋🏾
 					</h1>
 					<div className="flex gap-2">
 						<Badge>
@@ -31,7 +31,7 @@ export default function Home() {
 					<Image src={profile} alt="picture of tre galloway" className="rounded-full w-32 " />
 				</div>
 			</div>
-			<p>I'm a frontend developer, writer, and a person who reads too much fiction.</p>
+			<p>I&apos;m a frontend developer, writer, and a person who reads too much fiction.</p>
 		</section>
 	);
 }

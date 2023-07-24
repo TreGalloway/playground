@@ -25,8 +25,8 @@ export default function Portfolio() {
 			</h1>
 			{/* Map through project data */}
 			{projectItem.map((proj, idx) => (
-				<div>
-					<Card key={idx} className=" dark:bg-inherit border-0	">
+				<div key={idx}>
+					<Card className="dark:bg-inherit border-0">
 						<CardHeader>
 							<CardTitle>{proj.title}</CardTitle>
 							<CardDescription>{proj.stack}</CardDescription>
