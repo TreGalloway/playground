@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { LayoutGroup, motion } from 'framer-motion';
-import { ThemeButton } from './theme-button';
 
 const navItems = {
 	'/': {
@@ -68,7 +67,6 @@ export default function Navbar() {
 								);
 							})}
 						</div>
-						<ThemeButton />
 					</nav>
 				</LayoutGroup>
 			</div>

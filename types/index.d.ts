@@ -7,6 +7,7 @@ export type ProjectItem = {
 	live?: string;
 	stack: string;
 };
+
 export type SiteConfig = {
 	name: string;
 	description: string;
