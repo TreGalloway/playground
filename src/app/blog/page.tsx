@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { allBlogs } from 'contentlayer/generated';
+import { allPosts } from 'contentlayer/generated';
 
 export const metadata: Metadata = {
 	title: 'Blog',
@@ -11,9 +11,9 @@ export default async function BlogPage() {
 	return (
 		<section>
 			<h1 className="font-bold text-2xl mb-8 tracking-tighter">Blog In Progress</h1>
-			{allBlogs
+			{allPosts
 				.sort((a, b) => {
-					if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
+					if (new Date(a.date) > new Date(b.date)) {
 						return -1;
 					}
 					return 1;
