@@ -1,6 +1,5 @@
 import { allPosts } from 'contentlayer/generated';
 import { getMDXComponent } from 'next-contentlayer/hooks';
-import { format, parseISO } from 'date-fns';
 import { Mdx } from '@/components/mdx';
 import Balancer from 'react-wrap-balancer';
 
