@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default async function BlogPage() {
 	return (
 		<section>
-			<h1 className="font-bold text-2xl mb-8 tracking-tighter">Blog In Progress</h1>
+			<h1 className="mb-8 text-2xl font-bold tracking-tighter">Blog In Progress</h1>
 			{allPosts
 				.sort((a, b) => {
 					if (new Date(a.date) > new Date(b.date)) {
@@ -21,11 +21,11 @@ export default async function BlogPage() {
 				.map((post: any) => (
 					<Link
 						key={post.slug}
-						className="flex flex-col space-y-1 mb-4"
+						className="flex flex-col mb-4 space-y-1"
 						href={`/blog/${post.slug}`}
 					>
-						<div className="w-full flex flex-col">
-							<p className="text-neutral-900 dark:text-neutral-100 tracking-tight">{post.title}</p>
+						<div className="flex flex-col w-full">
+							<p className="tracking-tight text-neutral-900 dark:text-neutral-100">{post.title}</p>
 						</div>
 					</Link>
 				))}

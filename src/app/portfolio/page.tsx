@@ -18,7 +18,7 @@ export default function Portfolio() {
 	return (
 		<section>
 			<Skills />
-			<h1 className="font-bold text-2xl pl-3 mb-3 mt-6 ">
+			<h1 className="pl-3 mt-6 mb-3 text-2xl font-bold ">
 				<a className="bg-gradient-to-r from-sky-300 bg-[length:100%_1px] bg-no-repeat bg-bottom">
 					Projects 💻
 				</a>
@@ -26,7 +26,7 @@ export default function Portfolio() {
 			{/* Map through project data */}
 			{projectItem.map((proj, idx) => (
 				<div key={idx}>
-					<Card className="dark:bg-inherit border-0">
+					<Card className="border-0 dark:bg-inherit">
 						<CardHeader>
 							<CardTitle>{proj.title}</CardTitle>
 							<CardDescription>{proj.stack}</CardDescription>

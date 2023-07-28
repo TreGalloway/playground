@@ -9,7 +9,7 @@ export default function Home() {
 		<section>
 			<div className="flex mb-4">
 				<div>
-					<h1 className="font-bold text-2xl mb-8 tracking-tighter mt-16">
+					<h1 className="mt-16 mb-8 text-2xl font-bold tracking-tighter">
 						Hey I&apos;m Tre&apos; Galloway 👋🏾
 					</h1>
 					<div className="flex gap-2">
@@ -17,7 +17,7 @@ export default function Home() {
 							<PenLine size={16} className=" text-cyan-600" /> Writer
 						</Badge>
 						<Badge>
-							<ChevronRightSquareIcon size={16} className=" text-purple-600" />
+							<ChevronRightSquareIcon size={16} className="text-purple-600 " />
 							Developer
 						</Badge>
 						<Badge>
@@ -28,7 +28,7 @@ export default function Home() {
 				</div>
 
 				<div className=" pl-28">
-					<Image src={profile} alt="picture of tre galloway" className="rounded-full w-32 " />
+					<Image src={profile} alt="picture of tre galloway" className="w-32 rounded-full " />
 				</div>
 			</div>
 			<p>I&apos;m a frontend developer, writer, and a person who reads too much fiction.</p>
