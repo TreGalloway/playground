@@ -1,87 +1,36 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { Mdx } from '@/components/mdx';
 import { allPosts } from 'contentlayer/generated';
+import { getMDXComponent } from 'next-contentlayer/hooks';
+import { format, parseISO } from 'date-fns';
+import { Mdx } from '@/components/mdx';
+import Image from 'next/image';
 
-import Balancer from 'react-wrap-balancer';
+export const generateStaticParams = async () =>
+	allPosts.map((post: any) => ({ slug: post._raw.flattenedPath }));
+export const generateMetadata = ({ params }: any) => {
+	const post = allPosts.find((post: any) => post._raw.flattenedPath === params.slug);
+	return { title: post?.title, description: post?.description };
+};
 
-interface PostProps {
-	params: {
-		slug: string[];
-	};
-}
-async function getPostFromParams(params: PostProps['params']) {
-	let slug;
-	if (Array.isArray(params?.slug)) {
-		slug = params?.slug?.join('/');
-	}
-	const post = allPosts.find((post) => post.slugAsParams === slug);
+const PostLayout = ({ params }: { params: { slug: string } }) => {
+	const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
 
-	if (!post) {
-		null;
-	}
-
-	return post;
-}
-
-export async function generateMetadata({ params }: PostProps): Promise<Metadata> {
-	const post = await getPostFromParams(params);
+	let MDXContent;
 
 	if (!post) {
-		return {};
-	}
-
-	return {
-		title: post.title,
-		description: post.description
-	};
-}
-
-function formatDate(date: string) {
-	const currentDate = new Date();
-	const targetDate = new Date(date);
-
-	const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-	const monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-	const daysAgo = currentDate.getDate() - targetDate.getDate();
-
-	let formattedDate = '';
-
-	if (yearsAgo > 0) {
-		formattedDate = `${yearsAgo}y ago`;
-	} else if (monthsAgo > 0) {
-		formattedDate = `${monthsAgo}mo ago`;
-	} else if (daysAgo > 0) {
-		formattedDate = `${daysAgo}d ago`;
+		return <div>404</div>;
 	} else {
-		formattedDate = 'Today';
-	}
-
-	const fullDate = targetDate.toLocaleString('en-us', {
-		month: 'long',
-		day: 'numeric',
-		year: 'numeric'
-	});
-
-	return `${fullDate} (${formattedDate})`;
-}
-
-export default async function Blog({ params }: any) {
-	const post = allPosts.find((post) => post.slug === params.slug);
-
-	if (!post) {
-		notFound();
+		MDXContent = getMDXComponent(post!.body.code);
 	}
 
 	return (
-		<section>
-			<h1 className="font-bold text-2xl tracking-tighter max-w-[650px]">
-				<Balancer>{post.title}</Balancer>
-			</h1>
-			<div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
-				<p className="text-sm text-neutral-600 dark:text-neutral-400">{formatDate(post.date)}</p>
-			</div>
-			<Mdx code={post.body.code} />
-		</section>
+		<div>
+			<h1>{post.title}</h1>
+			<p>{format(parseISO(post.date), 'LLLL d, yyyy')}</p>
+			<article>
+				<MDXContent components={{ Mdx }} />
+			</article>
+		</div>
 	);
-}
+};
+
+export default PostLayout;
