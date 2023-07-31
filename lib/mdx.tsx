@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
 const CustomLink = (props: any) => {
@@ -22,7 +22,7 @@ const CustomLink = (props: any) => {
 };
 
 function RoundedImage(props: any) {
-	return <Image alt={props.alt} className="rounded-lg" {...props} />;
+	return <NextImage alt={props.alt} className="rounded-lg" {...props} />;
 }
 
 function Callout(props: any) {
@@ -47,5 +47,9 @@ interface MdxProps {
 export function Mdx({ code }: MdxProps) {
 	const Component = useMDXComponent(code);
 
-	return <Component components={components} />;
+	return (
+		<article className="prose prose-quoteless prose-neutral dark:prose-invert">
+			<Component components={components} />
+		</article>
+	);
 }

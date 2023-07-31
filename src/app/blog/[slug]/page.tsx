@@ -1,6 +1,6 @@
 import { allPosts } from 'contentlayer/generated';
 import { getMDXComponent } from 'next-contentlayer/hooks';
-import { Mdx } from '@/components/mdx';
+import { Mdx } from '../../../../lib/mdx';
 import Balancer from 'react-wrap-balancer';
 
 export const generateStaticParams = async () =>
@@ -52,14 +52,14 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 
 	return (
 		<div>
-			<h1 className="font-bold text-2xl tracking-tighter max-w-[650px]">
+			<h1 className="font-bold text-4xl tracking-tighter max-w-[650px]">
 				<Balancer>{post.title}</Balancer>
 			</h1>
 			<div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
 				<p className="text-sm text-neutral-600 dark:text-neutral-400">{formatDate(post.date)}</p>
 			</div>
 			<article>
-				<MDXContent components={{ Mdx }} />
+				<Mdx code={post.body.code} />
 			</article>
 		</div>
 	);
